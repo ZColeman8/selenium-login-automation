@@ -1,104 +1,121 @@
-# 🔐 Selenium Login Automation - BrowserStack Demo
+# 🧪 Selenium Login Automation
 
-This project automates the login process for [BrowserStack's Demo Site](https://www.bstackdemo.com/) using **Selenium WebDriver**, **Python**, and **Pytest**, following the **Page Object Model (POM)** design pattern.
-
----
-
-## 🚀 Project Overview
-
-- **Objective**: Automate login functionality for a demo e-commerce web app.
-- **Tech Stack**:
-  - Selenium WebDriver
-  - Python 3.11
-  - Pytest for test execution
-  - WebDriver Manager for handling browser drivers
-  - POM (Page Object Model) for clean test architecture
+This is a simple and clean Selenium automation project using Python, Pytest, and the Page Object Model (POM). It automates logging into the [BrowserStack Demo site](https://www.bstackdemo.com/), validates success, and demonstrates good structure for QA automation portfolios.
 
 ---
 
 ## 📁 Project Structure
 
+```
 login_automation/
-│
 ├── src/
-│   ├── __init__.py
-│   ├── pages/                     # Page Object classes
-│   │   ├── __init__.py
-│   │   ├── homepage.py
-│   │   └── sign_in_page.py
-│   └── utils/                     # Utility/helper modules
-│       └── helpers.py
+│   └── pages/
+│       ├── homepage.py
+│       └── sign_in_page.py
 │
-├── tests/                         # Test files
-│   ├── __init__.py
+├── tests/
 │   └── test_login.py
 │
-├── conftest.py                    # Pytest fixtures (setup/teardown)
-├── requirements.txt              # Dependencies
-├── README.md                     # Project documentation
-
-# Cache and metadata (auto-generated)
-├── .pytest_cache/                # Pytest cache
-├── __pycache__/                  # Python bytecode cache
+├── reports/                # Auto-generated HTML test reports
+│   └── latest_report.html
+│
+├── screenshots/            # Screenshots taken on test failure
+│   └── test_login.png
+│
+├── conftest.py             # Pytest fixtures + screenshot-on-failure logic
+├── requirements.txt        # Dependencies
+├── pytest.ini              # Pytest config for output + report
+├── .gitignore
+├── README.md
+```
 
 ---
 
-## 🧪 How to Run This Project
+## 🔧 Setup Instructions
 
-### 1. 🔧 Install Dependencies
-
-Make sure you have Python 3.11+ and `pip` installed.
+### 1. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. ▶️ Run the Test
+---
+
+### 2. Run the test
+
+This runs the login test, captures terminal output, saves a test report, and takes screenshots on failure:
 
 ```bash
-pytest tests/test_login.py -s
+pytest
+```
+
+Thanks to `pytest.ini`, this automatically:
+- Shows `print()` statements in terminal (`-s`)
+- Saves an HTML report to `reports/latest_report.html`
+- Saves screenshots to `screenshots/` if a test fails
+
+---
+
+## ✅ Features
+
+- ✅ Selenium WebDriver with Chrome
+- ✅ Page Object Model (POM) structure
+- ✅ Pytest test runner
+- ✅ Fixtures for setup/teardown
+- ✅ Explicit waits using `WebDriverWait`
+- ✅ Assertion for verifying login
+- ✅ Screenshot capture on failure
+- ✅ HTML test reporting via `pytest-html`
+- ✅ Organized, professional project layout
+
+---
+
+## 🖼 Screenshot on Failure
+
+When a test fails, a screenshot is saved to:
+
+```
+screenshots/<test_name>.png
+```
+
+Example: `screenshots/test_login.png`
+
+---
+
+## 📊 HTML Test Report
+
+After test runs, open the generated report here:
+
+```
+reports/latest_report.html
+```
+
+Use `--self-contained-html` for standalone reports (no CSS assets):
+
+```bash
+pytest --self-contained-html --html=reports/<your_report>.html
 ```
 
 ---
 
-## ✅ Key Features
+## 🔮 Future Enhancements
 
-- Complete login flow automation
-- Clean separation via Page Object Model
-- Explicit waits for stability
-- Pytest fixtures to manage setup and teardown
-- Assertion to verify successful login
-- Utility functions via src/utils/helpers.py for future scaling
-
----
-
-## 📸 Example Output
-
-```bash
-Login Successful
-.
-1 passed in 5.21s
-```
-
----
-
-## 📌 Future Enhancements
-
-- Add negative test scenarios (e.g., invalid credentials)
-- Add logout and product/cart interactions
-- Screenshot capture on test failure
-- CI integration (GitHub Actions, Jenkins, etc.)
-- Test reporting with pytest-html or Allure
+- ❌ Negative test scenarios (invalid credentials)
+- 🛒 Cart and product interaction tests
+- 📷 Embed screenshots directly in HTML report
+- 📦 CI/CD integration (GitHub Actions, Jenkins)
+- 🧾 Reporting with `pytest-html` or `Allure`
 
 ---
 
 ## 👨‍💻 Author
 
-Zach Coleman
-QA Automation Engineer in Training
+**Zach Coleman**  
+*QA Automation Engineer in Training*  
+<!-- LinkedIn and GitHub coming soon -->
 
 ---
 
 ## 🏁 License
 
-This project is intended for educational and portfolio use. You are free to clone, modify, and use it for personal learning or demo purposes.
+This project is intended for educational and portfolio use. You’re free to clone, modify, and share for personal or demo purposes.

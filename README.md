@@ -8,6 +8,9 @@ This is a simple and clean Selenium automation project using Python, Pytest, and
 
 ```
 login_automation/
+├── .github/
+│   └── workflows/
+│       └── ci.yml   
 ├── src/
 │   └── pages/
 │       ├── homepage.py
@@ -67,6 +70,17 @@ Thanks to `pytest.ini`, this automatically:
 - ✅ Screenshot capture on failure
 - ✅ HTML test reporting via `pytest-html`
 - ✅ Organized, professional project layout
+- ✅ CI pipeline with GitHub Actions
+
+---
+
+🚀 GitHub Actions CI
+This project runs automated tests on every push and pull request to the main branch using GitHub Actions.
+
+Workflow: .github/workflows/ci.yml
+- Installs dependencies
+- Runs tests via pytest
+- Saves reports/report.html as a downloadable artifact
 
 ---
 
@@ -103,8 +117,8 @@ pytest --self-contained-html --html=reports/<your_report>.html
 - ❌ Negative test scenarios (invalid credentials)
 - 🛒 Cart and product interaction tests
 - 📷 Embed screenshots directly in HTML report
-- 📦 CI/CD integration (GitHub Actions, Jenkins)
-- 🧾 Reporting with `pytest-html` or `Allure`
+- 🌐 Parallel test execution (e.g. with pytest-xdist)
+- ☁️ Deploy reports to GitHub Pages or S3
 
 ---
 
